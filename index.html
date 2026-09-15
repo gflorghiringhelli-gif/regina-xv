@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Regina Valentina Beaumont · XV Años</title>
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Montserrat:ital,wght@0,300;0,400;1,300&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+   <div id="toast" class="toast">¡Alias copiado al portapapeles!</div>
+
+   <!-- CANVAS DESTELLOS PLATEADOS -->
+   <canvas id="petalsCanvas"></canvas>
+
+  <!-- MÚSICA -->
+   <audio id="musicaInvitacion" preload="auto" loop>
+      <source src="img/musica.mp3" type="audio/mp3">
+   </audio>
+
+   <div id="music-toggle" class="music-btn" onclick="toggleMusic()">
+       <i class="fa-solid fa-music"></i>
+   </div>
+   
+   <!-- INTRO SOBRE ESTÁTICO -->
+   <div id="contenedor-principal" onclick="activarInvitacion()">
+       <img src="img/sobre.png" alt="Sobre" id="imagenSobreEstetica">
+       <video id="videoSobre" playsinline preload="auto">
+           <source src="img/1.mp4" type="video/mp4">
+       </video>
+       <div id="capa-boton">
+           <div class="boton-rosa-inicio" id="btn-toca-abrir">TOCÁ EL SELLO PARA ABRIR</div>
+       </div>
+   </div>
+
+   <!-- CONTENEDOR TIPO APP MÓVIL CENTRADO CON FONDO.PNG -->
+   <div class="mobile-wrapper">
+       <div id="seccion-final">
+
+           <!-- PORTADA -->
+           <header class="hero-portada reveal">
+               <img src="img/portada.png" alt="Regina Valentina" class="portada-img">
+               <div class="portada-overlay">
+                   <h1 class="main-title-portada">REGINA VALENTINA</h1>
+                   <p class="title-sub-portada">XV AÑOS</p>
+               </div>
+           </header>
+
+           <!-- INTRODUCCIÓN -->
+           <section class="section-pad reveal">
+               <div class="card-box silver-border-glow">
+                   <p class="editorial-heading" style="font-size: 1.1rem; letter-spacing: 2px;">✦ UNA NOCHE MÁGICA</p>
+                   <p class="text-body">
+                       Hay momentos que se sienten una sola vez, y este es uno de ellos.<br><br>
+                       Con mucha ilusión y rodeada de las personas que más quiero, quiero celebrar la llegada de mis XV años. Me encantaría compartir esta noche mágica con vos.
+                   </p>
+               </div>
+           </section>
+
+           <!-- GALERÍA / PRE-XV (FOTO 1 Y FOTO 2) -->
+           <section class="section-pad reveal">
+               <div class="card-box silver-border-glow" style="padding: 25px 0;">
+                   <h2 class="editorial-heading">PRE-XV</h2>
+                   <p class="title-sub-cursive">Deslizá para ver las fotos</p>
+
+                   <div class="gallery-slider-wrapper mt-20">
+                       <div class="gallery-slider">
+                           <div class="slide-item"><img src="img/foto1.png" alt="Pre-XV 1"></div>
+                           <div class="slide-item"><img src="img/foto2.png" alt="Pre-XV 2"></div>
+                       </div>
+                       <div class="slider-hint mt-10">
+                           <i class="fa-solid fa-arrow-left-long"></i> Deslizá <i class="fa-solid fa-arrow-right-long"></i>
+                       </div>
+                   </div>
+               </div>
+           </section>
+
+           <!-- SAVE THE DATE & CONTADOR -->
+           <section class="section-pad reveal">
+               <div class="card-box silver-border-glow">
+                   <h2 class="editorial-heading">SAVE THE DATE</h2>
+                   <p class="title-sub-cursive">Descubrí la fecha</p>
+                   <p class="text-body" style="font-size: 0.85rem;">Tocá cada círculo y descubrí poco a poco la fecha de mi gran noche.</p>
+
+                   <div class="scratch-circles-wrapper" id="circlesWrapper">
+                       <div class="circle-scratch-card">
+                           <div class="circle-reveal-content">
+                               <span class="circle-number">5</span>
+                               <span class="circle-label">DÍA</span>
+                           </div>
+                           <canvas class="circle-canvas" data-index="0" data-label="DÍA"></canvas>
+                       </div>
+
+                       <div class="circle-scratch-card">
+                           <div class="circle-reveal-content">
+                               <span class="circle-number">12</span>
+                               <span class="circle-label">MES</span>
+                           </div>
+                           <canvas class="circle-canvas" data-index="1" data-label="MES"></canvas>
+                       </div>
+
+                       <div class="circle-scratch-card">
+                           <div class="circle-reveal-content">
+                               <span class="circle-number">2026</span>
+                               <span class="circle-label">AÑO</span>
+                           </div>
+                           <canvas class="circle-canvas" data-index="2" data-label="AÑO"></canvas>
+                       </div>
+                   </div>
+
+                   <div class="countdown-card" id="countdownCard">
+                       <p style="font-family:'Cinzel',serif; font-size:0.75rem; letter-spacing:3px; color:var(--silver);">FALTAN POCOS DÍAS</p>
+                       <div class="countdown-boxes">
+                           <div class="cd-box"><span id="cd-days">00</span><p>Días</p></div>
+                           <div class="cd-sep">:</div>
+                           <div class="cd-box"><span id="cd-hours">00</span><p>Hs</p></div>
+                           <div class="cd-sep">:</div>
+                           <div class="cd-box"><span id="cd-mins">00</span><p>Min</p></div>
+                           <div class="cd-sep">:</div>
+                           <div class="cd-box"><span id="cd-secs">00</span><p>Seg</p></div>
+                       </div>
+
+                       <div class="mt-20">
+                           <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=XV+Regina+Valentina&dates=20261115T210000Z/20261116T050000Z&details=¡Te+esperamos+en+mis+15+años!&location=Puerto+Liebig" target="_blank" class="btn btn-silver">
+                               <i class="fa-solid fa-calendar-days"></i> AGENDAR EN GOOGLE CALENDAR
+                           </a>
+                       </div>
+                   </div>
+               </div>
+           </section>
+
+           <!-- DRESS CODE Y PALETA -->
+           <section class="section-pad reveal">
+               <div class="card-box silver-border-glow">
+                   <h2 class="editorial-heading">DRESS CODE</h2>
+                   <p class="title-sub-cursive">Código de Vestimenta</p>
+                   <p style="font-family:'Cinzel',serif; font-size:1.1rem; letter-spacing:2px; color:var(--text-light); margin-top:10px;">FORMAL / ELEGANTE</p>
+                   <p class="text-body">Para esta noche tan especial, te invito a vestir con tu mejor look y disfrutar de una celebración llena de glamour.</p>
+                   
+                   <p style="font-family:'Cinzel',serif; font-size:0.8rem; letter-spacing:2px; color:var(--silver); margin-top:20px;">PALETA SUGERIDA</p>
+                   <div class="palette-grid">
+                       <div class="palette-item"><div class="color-dot" style="background:#520608;"></div><span class="palette-label">Bordó</span></div>
+                       <div class="palette-item"><div class="color-dot" style="background:#c0c0c0;"></div><span class="palette-label">Plateado</span></div>
+                       <div class="palette-item"><div class="color-dot" style="background:#790b0e;"></div><span class="palette-label">Rojo</span></div>
+                       <div class="palette-item"><div class="color-dot" style="background:#1a1a1a;"></div><span class="palette-label">Negro</span></div>
+                   </div>
+
+                   <div class="mt-20">
+                       <a href="https://www.pinterest.com" target="_blank" class="btn btn-outline">
+                           <i class="fa-brands fa-pinterest"></i> LOOKBOOK PINTEREST
+                       </a>
+                   </div>
+               </div>
+           </section>
+
+           <!-- UBICACIÓN PRO -->
+           <section class="section-pad reveal">
+               <div class="card-box silver-border-glow">
+                   <h2 class="editorial-heading">UBICACIÓN</h2>
+                   <p class="title-sub-cursive">Puerto Liebig</p>
+                   
+                   <div class="event-details-pro mt-15">
+                       <div class="pro-row">
+                           <i class="fa-regular fa-calendar-days"></i>
+                           <span>Sábado, 5 de Diciembre del 2026</span>
+                       </div>
+                       <div class="pro-row">
+                           <i class="fa-regular fa-clock"></i>
+                           <span>21:00 hs.</span>
+                       </div>
+                       <div class="pro-row">
+                           <i class="fa-solid fa-location-dot"></i>
+                           <div>
+                               <strong>Puerto Liebig</strong><br>
+                               <span style="font-size: 0.85rem; color:var(--text-muted);">Ave. Fernando Leri Reinhold esq. Carlos Gomez</span>
+                           </div>
+                       </div>
+                   </div>
+
+                   <div class="mt-20">
+                       <a href="https://www.google.com/maps/dir//Puerto+Liebig,+QCFJ%2BV62,+Ave.+Fernando+Leri+Reinhold+esq,+Carlos+Gomez,+001501/@-25.3402531,-57.5872534,15z/data=!4m8!4m7!1m0!1m5!1m1!1s0x945da7f6c0cd56d9:0x2893a0b3bf6ebe47!2m2!1d-57.570707!2d-25.2279531?entry=ttu&g_ep=EgoyMDI2MDkwOS4wIKXMDSoASAFQAw%3D%3D" target="_blank" class="btn btn-silver">
+                           <i class="fa-solid fa-map-location-dot"></i> CÓMO LLEGAR
+                       </a>
+                   </div>
+               </div>
+           </section>
+
+           <!-- RSVP -->
+           <section class="section-pad reveal">
+               <div class="card-box silver-border-glow">
+                   <h2 class="editorial-heading">RSVP</h2>
+                   <p class="title-sub-cursive">Confirmación</p>
+                   <p class="text-body">Tu presencia hará que esta noche sea todavía más especial.<br>Fecha límite: <strong>1 de Diciembre</strong></p>
+                   <div class="mt-20">
+                       <a href="https://wa.me/595980000000?text=¡Hola!%20Confirmo%20mi%20asistencia%20a%20los%20XV%20de%20Regina%20Valentina%20✨" target="_blank" class="btn btn-silver">
+                           <i class="fa-brands fa-whatsapp"></i> CONFIRMAR ASISTENCIA
+                       </a>
+                   </div>
+               </div>
+           </section>
+
+           <!-- REGALOS / TRANSFERENCIA -->
+           <section class="section-pad reveal">
+               <div class="card-box silver-border-glow">
+                   <h2 class="editorial-heading">REGALOS</h2>
+                   <p class="title-sub-cursive">Un detalle especial</p>
+                   <p class="text-body">Si deseás regalarme algo, podés realizar una transferencia bancaria:</p>
+                   
+                   <div class="bank-card mt-15">
+                       <p><strong>Titular:</strong> Valentina</p>
+                       <p><strong>Banco:</strong> Ueno Bank</p>
+                       <p><strong>Alias:</strong> <span id="aliasText">1234567</span></p>
+                   </div>
+
+                   <div class="mt-20">
+                       <button onclick="copiarAlias()" class="btn btn-silver">
+                           <i class="fa-solid fa-copy"></i> COPIAR ALIAS
+                       </button>
+                   </div>
+               </div>
+           </section>
+
+           <!-- CIERRE -->
+           <section class="section-pad reveal" style="padding-top: 30px; padding-bottom: 50px;">
+               <p class="text-body" style="font-style: italic;">
+                   Gracias por ser parte de este momento tan importante para mí. Espero verte, celebrar, bailar y crear juntos recuerdos que duren para siempre.
+               </p>
+               <h3 class="editorial-heading mt-20" style="font-size: 1.8rem; font-family:'Great Vibes', cursive; text-transform:none; color:var(--silver-light);">Regina ♡</h3>
+               <p style="font-size: 0.75rem; letter-spacing: 4px; color:var(--silver); margin-top: 10px;">NOS VEMOS EN MIS XV </p>
+           </section>
+
+           <footer class="editorial-footer">
+               <p>GHISA DIGITAL · Tel: 0981 228 720</p>
+           </footer>
+
+       </div>
+   </div>
+
+   <script src="script.js"></script>
+</body>
+</html>

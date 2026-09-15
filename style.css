@@ -1,0 +1,251 @@
+:root {
+    --red-base: #790b0e;
+    --silver: #e5e7eb;
+    --silver-light: #ffffff;
+    --bg-dark: #790b0e;
+    --text-light: #f9fafb;
+    --text-muted: #e5e7eb;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+    background-color: #520608;
+    color: var(--text-light);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+    width: 100vw;
+    margin: 0;
+    /* FONDO.PNG GLOBAL */
+    background-image: url('img/fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
+
+/* CONTENEDOR TIPO APP MÓVIL CENTRADO CON FONDO.PNG CONTINUO */
+.mobile-wrapper {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    background-color: #790b0e;
+    background-image: linear-gradient(rgba(121, 11, 14, 0.88), rgba(121, 11, 14, 0.88)), url('img/fondo.png');
+    background-size: cover;
+    background-position: center;
+    background-repeat: repeat-y;
+    min-height: 100vh;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
+    position: relative;
+}
+
+#petalsCanvas {
+    position: fixed; top: 0; left: 0; width: 100vw; height: 100vh;
+    pointer-events: none; z-index: 9998;
+}
+
+/* MÚSICA */
+.music-btn {
+    position: fixed; bottom: 20px; right: 20px; width: 44px; height: 44px;
+    background: #520608; color: var(--silver); border: 1.5px solid var(--silver);
+    border-radius: 50%; display: flex; align-items: center; justify-content: center;
+    z-index: 4999; cursor: pointer; display: none; box-shadow: 0 4px 15px rgba(0,0,0,0.6);
+}
+
+/* INTRO SOBRE ESTÁTICO E INTERACTIVO */
+#contenedor-principal {
+    position: fixed; inset: 0; z-index: 5000; background: #790b0e; cursor: pointer;
+    display: flex; justify-content: center; align-items: center; width: 100vw; height: 100vh;
+}
+#imagenSobreEstetica {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 2; transition: opacity 0.5s ease;
+}
+#videoSobre {
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; display: none;
+}
+#capa-boton {
+    position: absolute; bottom: 50px; left: 50%; transform: translateX(-50%);
+    z-index: 5003; width: 90%; max-width: 360px; text-align: center;
+}
+.boton-rosa-inicio {
+    background: #520608; color: var(--silver-light); padding: 14px 28px;
+    border-radius: 30px; font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 3px;
+    border: 1.5px solid var(--silver); text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.7);
+}
+
+/* CONTENIDO PRINCIPAL */
+#seccion-final { display: none; width: 100%; position: relative; }
+.section-pad { padding: 45px 24px; }
+
+/* PORTADA CON DETALLE PLATEADO */
+.hero-portada {
+    position: relative; width: 100%; height: 520px; overflow: hidden;
+    border-bottom: 2px solid rgba(229, 231, 235, 0.3);
+}
+.portada-img {
+    width: 100%; height: 100%; object-fit: cover; object-position: center;
+}
+.portada-overlay {
+    position: absolute; inset: 0;
+    background: linear-gradient(to bottom, rgba(121,11,14,0.1) 40%, rgba(121,11,14,0.96) 90%);
+    display: flex; flex-direction: column; justify-content: flex-end; align-items: center;
+    padding: 0 20px 40px 20px;
+}
+.main-title-portada {
+    font-family: 'Cinzel', serif; font-size: 1.7rem; letter-spacing: 4px; color: var(--text-light); font-weight: 600; text-shadow: 0 2px 12px rgba(229,231,235,0.4);
+}
+.title-sub-portada {
+    font-family: 'Cinzel', serif; font-size: 0.8rem; letter-spacing: 6px; color: var(--silver); margin-top: 8px;
+}
+
+/* TARJETAS CON BRILLO Y DETALLES PLATEADOS */
+.card-box {
+    background: rgba(82, 6, 8, 0.55); border: 1.5px solid rgba(229, 231, 235, 0.35); border-radius: 16px; padding: 35px 24px;
+    box-shadow: 0 10px 35px rgba(0, 0, 0, 0.5), inset 0 0 15px rgba(229, 231, 235, 0.05); backdrop-filter: blur(6px); margin: 20px 0;
+}
+.silver-border-glow {
+    position: relative;
+}
+.silver-border-glow::after {
+    content: ''; position: absolute; inset: -1px; border-radius: 17px; border: 1px solid rgba(229,231,235,0.15); pointer-events: none;
+}
+
+/* GALERÍA SLIDER */
+.gallery-slider-wrapper { position: relative; width: 100%; }
+.gallery-slider { display: flex; gap: 15px; overflow-x: auto; scroll-snap-type: x mandatory; -webkit-overflow-scrolling: touch; padding: 10px 5px 15px 5px; scrollbar-width: none; }
+.gallery-slider::-webkit-scrollbar { display: none; }
+.slide-item { flex: 0 0 82%; height: 360px; scroll-snap-align: center; border-radius: 14px; overflow: hidden; box-shadow: 0 8px 25px rgba(0,0,0,0.6); border: 2px solid rgba(229,231,235,0.4); background: #3d0305; }
+.slide-item img { width: 100%; height: 100%; object-fit: cover; }
+.slider-hint { font-size: 0.65rem; letter-spacing: 3px; color: var(--silver); text-transform: uppercase; }
+
+/* UBICACIÓN PRO */
+.event-details-pro {
+    display: flex; flex-direction: column; gap: 14px; text-align: left; background: rgba(0,0,0,0.3); border: 1px solid rgba(229,231,235,0.2); border-radius: 12px; padding: 18px;
+}
+.pro-row {
+    display: flex; align-items: flex-start; gap: 14px; color: var(--text-light); font-size: 0.95rem;
+}
+.pro-row i {
+    color: var(--silver); font-size: 1.1rem; margin-top: 3px; min-width: 20px; text-align: center;
+}
+
+/* TIPOGRAFÍAS Y ESTILOS PLATEADOS */
+.editorial-heading {
+    font-family: 'Cinzel', serif; font-size: 1.4rem; letter-spacing: 4px; color: var(--silver-light); font-weight: 600; text-transform: uppercase; text-shadow: 0 2px 8px rgba(229,231,235,0.25);
+}
+.title-sub-cursive {
+    font-family: 'Great Vibes', cursive; font-size: 1.8rem; color: var(--silver); margin-top: 5px;
+}
+.text-body {
+    font-size: 0.95rem; color: var(--text-muted); line-height: 1.7; font-weight: 300; margin-top: 15px;
+}
+
+/* SAVE THE DATE (3 CÍRCULOS: INTERIOR PLATEADO, CAPA SUPERIOR ROJA PARA RASPAR) */
+.scratch-circles-wrapper {
+    display: flex; justify-content: center; align-items: center; gap: 15px; margin-top: 25px;
+}
+.circle-scratch-card {
+    position: relative; width: 90px; height: 90px; border-radius: 50%; box-shadow: 0 6px 18px rgba(0,0,0,0.6);
+}
+.circle-reveal-content {
+    position: absolute; inset: 0; border-radius: 50%; background: #e5e7eb; border: 2px solid #ffffff;
+    display: flex; flex-direction: column; justify-content: center; align-items: center; z-index: 1;
+}
+.circle-number {
+    font-family: 'Cinzel', serif; font-size: 1.5rem; font-weight: 600; color: #790b0e; line-height: 1;
+}
+.circle-label {
+    font-family: 'Montserrat', sans-serif; font-size: 0.55rem; letter-spacing: 2px; color: #3d0305; margin-top: 2px; text-transform: uppercase; font-weight: 700;
+}
+.circle-canvas {
+    position: absolute; inset: 0; width: 100%; height: 100%; border-radius: 50%; z-index: 5; touch-action: none; cursor: pointer; transition: opacity 0.6s ease;
+}
+
+/* COUNTDOWN */
+.countdown-card {
+    background: rgba(82,6,8,0.4); border: 1px solid rgba(229,231,235,0.35); border-radius: 12px; padding: 0 15px;
+    max-height: 0; opacity: 0; overflow: hidden; transform: translateY(25px) scale(0.94); margin-top: 0; pointer-events: none;
+    transition: all 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+}
+.countdown-card.revealed-done {
+    max-height: 250px; opacity: 1; overflow: visible; transform: translateY(0) scale(1); padding: 20px 15px; margin-top: 25px; pointer-events: auto;
+}
+.countdown-boxes { display: flex; justify-content: center; align-items: center; gap: 8px; margin-top: 15px; }
+.cd-box { background: rgba(0,0,0,0.5); border: 1px solid rgba(229,231,235,0.3); border-radius: 8px; width: 58px; padding: 8px 0; }
+.cd-box span { font-family: 'Cinzel', serif; font-size: 1.4rem; font-weight: 600; color: var(--silver-light); display: block; line-height: 1; }
+.cd-box p { font-size: 0.55rem; letter-spacing: 1px; color: var(--text-muted); margin-top: 3px; text-transform: uppercase; }
+.cd-sep { font-size: 1.2rem; color: var(--silver); }
+
+/* PALETA DE COLORES */
+.palette-grid {
+    display: flex; justify-content: center; gap: 12px; margin-top: 20px; flex-wrap: wrap;
+}
+.palette-item {
+    display: flex; flex-direction: column; align-items: center; gap: 6px;
+}
+.color-dot {
+    width: 38px; height: 38px; border-radius: 50%; border: 2px solid var(--silver); box-shadow: 0 4px 10px rgba(0,0,0,0.6);
+}
+.palette-label { font-size: 0.7rem; color: var(--text-muted); letter-spacing: 1px; }
+
+/* CAJA BANCARIA */
+.bank-card {
+    background: rgba(0,0,0,0.4); border: 1px dashed var(--silver); border-radius: 10px; padding: 15px; text-align: left; font-size: 0.9rem; color: var(--text-muted); line-height: 1.6;
+}
+.bank-card strong { color: var(--silver-light); }
+
+/* BOTONES PLATEADOS */
+.btn {
+    display: inline-block; padding: 12px 28px; border-radius: 30px; font-family: 'Cinzel', serif; font-size: 10px;
+    letter-spacing: 2px; text-decoration: none; border: none; cursor: pointer; text-transform: uppercase; transition: all 0.3s ease;
+}
+.btn-silver {
+    background-color: var(--silver-light); color: #790b0e; font-weight: 600; box-shadow: 0 4px 20px rgba(229, 231, 235, 0.35);
+}
+.btn-outline {
+    background: transparent; color: var(--text-light); border: 1.5px solid var(--silver);
+}
+
+/* TOAST NOTIFICACIÓN */
+.toast { position: fixed; bottom: 30px; left: 50%; transform: translateX(-50%) translateY(100px); background: var(--silver-light); color: #000; padding: 12px 24px; border-radius: 30px; font-family: 'Cinzel', serif; font-size: 11px; letter-spacing: 1px; font-weight: 600; z-index: 9999; opacity: 0; transition: all 0.4s ease; pointer-events: none; box-shadow: 0 5px 20px rgba(0,0,0,0.5); }
+.toast.show { transform: translateX(-50%) translateY(0); opacity: 1; }
+
+.mt-15 { margin-top: 15px; }
+.mt-20 { margin-top: 20px; }
+.mt-30 { margin-top: 30px; }
+
+.reveal { opacity: 0; transform: translateY(25px); transition: all 0.8s ease; }
+.reveal.active { opacity: 1; transform: translateY(0); }
+
+.editorial-footer {
+    padding: 30px 20px; font-family: 'Cinzel', serif; font-size: 9px; letter-spacing: 3px; color: var(--text-muted); background: #520608; border-top: 1px solid rgba(229,231,235,0.25);
+}
+
+body {
+    background-color: #520608;
+    color: var(--text-light);
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    overflow-x: hidden;
+    width: 100vw;
+    margin: 0;
+    /* FONDO.PNG EN MOSAICO UNIFORME */
+    background-image: url('img/fondo.png');
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: top center;
+}
+
+/* CONTENEDOR TIPO APP MÓVIL CENTRADO CON TEXTURA UNIFORME */
+.mobile-wrapper {
+    width: 100%;
+    max-width: 420px;
+    margin: 0 auto;
+    background-color: #790b0e;
+    background-image: linear-gradient(rgba(121, 11, 14, 0.88), rgba(121, 11, 14, 0.88)), url('img/fondo.png');
+    background-size: auto;
+    background-repeat: repeat;
+    min-height: 100vh;
+    box-shadow: 0 0 60px rgba(0, 0, 0, 0.9);
+    position: relative;
+}
