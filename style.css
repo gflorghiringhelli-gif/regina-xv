@@ -56,22 +56,21 @@ body {
 #contenedor-principal {
     position: fixed; inset: 0; z-index: 5000; background: #790b0e; cursor: pointer;
     display: flex; justify-content: center; align-items: center; width: 100vw; height: 100vh;
-    overflow: hidden;
 }
 #imagenSobreEstetica {
-    position: absolute; width: 100%; height: 100%; object-fit: contain; z-index: 3; transition: opacity 0.5s ease;
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: contain; background: #790b0e; z-index: 3; transition: opacity 0.5s ease;
 }
 #videoSobre {
-    position: absolute; width: 100%; height: 100%; object-fit: contain; z-index: 1; pointer-events: none;
+    position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover; z-index: 1; pointer-events: none;
 }
 #capa-boton {
-    position: absolute; bottom: 35px; left: 50%; transform: translateX(-50%);
-    z-index: 4; width: 85%; max-width: 320px; text-align: center;
+    position: absolute; bottom: 120px; left: 50%; transform: translateX(-50%);
+    z-index: 4; width: 90%; max-width: 320px; text-align: center;
 }
 .boton-rosa-inicio {
     background: #520608; color: var(--silver-light); padding: 12px 20px;
     border-radius: 30px; font-family: 'Cinzel', serif; font-size: 10px; letter-spacing: 2px;
-    border: 1.5px solid var(--silver); text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.8);
+    border: 1.5px solid var(--silver); text-align: center; box-shadow: 0 4px 20px rgba(0,0,0,0.9);
 }
 
 /* CONTENIDO PRINCIPAL */
