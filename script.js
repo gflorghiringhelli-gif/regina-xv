@@ -14,7 +14,7 @@ function activarInvitacion() {
     const musicIcon = document.getElementById('music-toggle');
 
     if (btnTexto) {
-        btnTexto.innerHTML = "ABRIENDO FIESTA... 👑";
+        btnTexto.innerHTML = "ABRIENDO SOBRE... 👑";
         btnTexto.style.opacity = "0.7";
     }
 
