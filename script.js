@@ -226,9 +226,9 @@ function lanzarDestellosPlateados() {
     animar();
 }
 
-// CONTADOR (5 DICIEMBRE 2026 21:00:00)
+// CONTADOR (5 Diciembre 2026 21:00:00)
 function iniciarContador() {
-    const targetDate = new Date('2026-11-15T21:00:00').getTime();
+    const targetDate = new Date('2026-12-05T21:00:00').getTime();
     function actualizar() {
         const diff = targetDate - new Date().getTime();
         if (diff <= 0) return;
